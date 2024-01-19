@@ -1,0 +1,156 @@
+
+/* CSS RESET */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+/* A elements that don't have a class get default styles */
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* CUSTOM PROPERTIES */
+
+:root {
+    /* Primary Color */
+    --clr-green: hsl(75, 94%, 57%);
+    /* Neutral Colors */
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-grey: hsl(0, 0%, 20%);
+    --clr-dark-grey: hsl(0, 0%, 12%);
+    --clr-off-black: hsl(0, 0%, 8%);
+
+    /* Typography */
+    --ff-inter: 'Inter', sans-serif;
+    --fs-small: .875rem;
+    --fw-regular: 400;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+}
+
+/* UTILITIES */
+
+.flow > * + * {
+    --flow-space: 2rem;
+    margin-top: var(--flow-space, 1rem);
+}
+
+/* GENERAL STYLES */
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100svh;
+    background-color: var(--clr-off-black);
+    color: var(--clr-white);
+    font-family: var(--ff-inter);
+    font-weight: var(--fw-semibold);
+    text-align: center;
+    padding: 1rem;
+}
+
+.card {
+    background-color: var(--clr-dark-grey);
+    border-radius: 12px;
+    padding: 1.5rem;
+    max-width: 20rem;
+}
+
+
+.main-image {
+    border-radius: 50%;
+    margin-inline: auto;
+    width: 50%;
+}
+
+.profile__title {
+    font-weight: var(--fw-semibold);
+}
+
+.profile__location {
+    --flow-space: .6rem;
+    color: var(--clr-green);
+}
+
+.main-paragraph {
+    font-size: var(--fs-small);
+    font-weight: var(--fw-regular);
+    padding-inline: .4em;
+}
+
+.social__list-item {
+    --flow-space: 1rem;
+    background-color: var(--clr-grey);
+    border-radius: 5px;
+    padding: .75em;
+    font-weight: var(--fw-bold);
+    cursor: pointer;
+}
+
+.social__list-item:is(:hover, :focus) {
+    background-color: var(--clr-green);
+    color: var(--clr-off-black);
+    transition: .25s;
+}
+
